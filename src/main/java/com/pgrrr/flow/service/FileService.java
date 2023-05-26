@@ -9,6 +9,7 @@ import com.pgrrr.flow.mapper.FileMapper;
 
 import lombok.RequiredArgsConstructor;
 
+import org.apache.commons.io.FilenameUtils;
 import org.apache.tika.Tika;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -41,22 +43,17 @@ public class FileService {
     public void uploadFile(MultipartFile multipartFile) throws IOException {
         String originalFilename = multipartFile.getOriginalFilename();
         String uuid = UUID.randomUUID().toString();
-        String extension;
-        if (originalFilename != null && originalFilename.lastIndexOf(".") != -1) {
-            extension = originalFilename.substring(originalFilename.lastIndexOf(".") + 1);
-            List<FileExtension> fileExtensionList = fileExtensionMapper.selectExtensionList();
-            boolean isAllowedExtension =
-                    fileExtensionList.stream()
-                            .anyMatch(
-                                    fileExtension ->
-                                            Objects.equals(fileExtension.getName(), extension));
-            if (isAllowedExtension) {
-                throw new FileTypeCheckException(ErrorCode.BLOCKED_EXTENSION);
-            }
-        } else {
-            extension = "";
+        String extension = FilenameUtils.getExtension(originalFilename);
+        List<FileExtension> fileExtensionList = fileExtensionMapper.selectExtensionList();
+        boolean isAllowedExtension =
+                fileExtensionList.stream()
+                        .anyMatch(
+                                fileExtension ->
+                                        Objects.equals(fileExtension.getName(), extension));
+        if (isAllowedExtension) {
+            throw new FileTypeCheckException(ErrorCode.BLOCKED_EXTENSION);
         }
-        String savedName = uuid + extension;
+        String savedName = uuid + "." + extension;
         String savedPath = fileDir + savedName;
         FileInfo fileInfo =
                 FileInfo.builder()
@@ -84,8 +81,7 @@ public class FileService {
      * @throws IOException 업로드 예외 발생
      */
     public void checkFileMimeType(File file) throws IOException {
-        Tika tika = new Tika();
-        String mimeType = tika.detect(file);
+        String mimeType = new Tika().detect(file);
         String detectExtension = mimeType.substring(mimeType.lastIndexOf("/") + 1);
         List<FileExtension> fileExtensionList = fileExtensionMapper.selectExtensionList();
         boolean isAllowedExtension =
@@ -97,5 +93,11 @@ public class FileService {
         if (isAllowedExtension) {
             throw new FileTypeCheckException(ErrorCode.BLOCKED_MIME_TYPE);
         }
+    }
+
+    public List<String> loadUploadFileList() {
+        File directory = new File(fileDir);
+        String[] files = directory.list();
+        return Arrays.asList(Objects.requireNonNull(files));
     }
 }
