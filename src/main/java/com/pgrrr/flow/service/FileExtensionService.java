@@ -81,4 +81,8 @@ public class FileExtensionService {
     public void removeExtension(String name) {
         fileExtensionMapper.deleteExtension(name);
     }
+
+    public List<String> loadExtensionNameList() {
+        return fileExtensionMapper.selectExtensionNameList();
+    }
 }

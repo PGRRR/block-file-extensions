@@ -24,4 +24,7 @@ public interface FileExtensionMapper {
 
     @Delete("DELETE FROM file_extension WHERE name = #{name}")
     void deleteExtension(String name);
+
+    @Select("SELECT name FROM file_extension")
+    List<String> selectExtensionNameList();
 }

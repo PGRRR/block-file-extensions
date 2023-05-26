@@ -57,4 +57,10 @@ public class FileExtensionRestController {
         fileExtensionService.removeExtension(name);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+
+    @GetMapping("/list")
+    public ResponseEntity<List<String>> loadExtensionDbList() {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(fileExtensionService.loadExtensionNameList());
+    }
 }
