@@ -1,5 +1,6 @@
 # 📁 파일 확장자 차단 과제
 
+
 - 어떤 파일들은 첨부 시 보안에 문제가 될 수 있습니다.
 - 특히 exe, sh 등의 실행 파일이 존재할 경우 서버에 올려서 실행이 될 수 있는 위험이 있습니다.
 - 때문에 파일 확장자 차단을 하게 되었습니다.
@@ -32,3 +33,6 @@
 
 ## ERD
 ![image](https://github.com/PGRRR/block-file-extensions/assets/82517133/ac3b0d26-1d6a-4224-8b07-6c9732fbead8)
+
+## 화면 구성
+![image](https://github.com/PGRRR/block-file-extensions/assets/82517133/53ab34d5-1c7b-417f-8949-02815859a0a4)
