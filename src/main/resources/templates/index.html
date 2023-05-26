@@ -32,7 +32,7 @@
     </p>
 
     <div id="customExtensions">
-        <div class="extensionCount">0/10</div>
+        <div class="extensionCount">0/200</div>
     </div>
     <input id="fileInput" type="file" name="file" class="custom-file-input">
     <button id="uploadButton" type="submit">업로드</button>
@@ -238,7 +238,7 @@
         function updateExtensionCount() {
             const extensionTags = $('.extensionTag');
             const extensionCount = $('.extensionCount').eq(0);
-            extensionCount.text(extensionTags.length + '/10');
+            extensionCount.text(extensionTags.length + '/200');
         }
 
         $('#uploadButton').click(function () {

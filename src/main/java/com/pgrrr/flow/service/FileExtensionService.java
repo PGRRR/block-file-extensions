@@ -69,7 +69,7 @@ public class FileExtensionService {
      * @return boolean 최대 초과 여부
      */
     private boolean isExtensionLimitExceeded() {
-        return fileExtensionMapper.countExtension() >= 10;
+        return fileExtensionMapper.countExtension() >= 200;
     }
 
     /**
