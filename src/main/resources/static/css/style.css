@@ -14,16 +14,6 @@ h1 {
     text-align: center;
 }
 
-form {
-    max-width: 550px;
-    margin: 0 auto;
-}
-
-.form {
-    max-width: 550px;
-    margin: 0 auto;
-}
-
 p {
     margin-bottom: 10px;
 }
@@ -35,6 +25,34 @@ strong {
 label {
     display: inline-block;
     margin-right: 10px;
+}
+
+button {
+    padding: 10px 10px;
+    background-color: #5F49DC;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+}
+
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #5F49DC;
+    outline: none;
 }
 
 input[type="checkbox"],
@@ -52,25 +70,9 @@ input[type="file"] {
     border-radius: 5px;
 }
 
-button {
-    padding: 10px 10px;
-    background-color: #5F49DC;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-#customExtensions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-top: 10px;
-    position: relative;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+.form {
+    max-width: 550px;
+    margin: 0 auto;
 }
 
 .extensionTag {
@@ -104,25 +106,6 @@ button {
     font-size: 12px;
 }
 
-button[type="submit"] {
-    display: block;
-    margin-top: 10px;
-    width: 100%;
-}
-
-input[type="text"] {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus {
-    border-color: #5F49DC;
-    outline: none;
-}
-
 .custom-file-input {
     padding: 10px;
     background-color: #5F49DC;
@@ -130,6 +113,38 @@ input[type="text"]:focus {
     border-radius: 20px;
     font-size: 16px;
     cursor: pointer;
+}
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.list {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    width: 49%;
+    background-color: white;
+}
+
+.refresh-button {
+    margin-left: 20px;
+}
+
+#customExtensions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+    position: relative;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 @media only screen and (max-width: 550px) {
