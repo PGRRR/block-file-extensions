@@ -31,6 +31,12 @@ public class FileService {
     @Value("${file.dir}")
     private String fileDir;
 
+    /**
+     * 파일 업로드 메서드
+     *
+     * @param multipartFile 업로드 파일
+     * @throws IOException 업로드 예외 발생
+     */
     @Transactional
     public void uploadFile(MultipartFile multipartFile) throws IOException {
         String originalFilename = multipartFile.getOriginalFilename();
@@ -71,6 +77,12 @@ public class FileService {
         }
     }
 
+    /**
+     * Apache Tika를 통한 MIME Type 확인 후 차단 확장자 목록으로 검사
+     *
+     * @param file 업로드 파일
+     * @throws IOException 업로드 예외 발생
+     */
     public void checkFileMimeType(File file) throws IOException {
         Tika tika = new Tika();
         String mimeType = tika.detect(file);
