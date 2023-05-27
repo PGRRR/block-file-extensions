@@ -37,9 +37,9 @@ echo "> 기존 jar 백업"
 
 OLD_JAR_NAME=$(ls -tr $REPOSITORY/ | grep jar | tail -n 1)
 
-mkdir backup/$TODAY$OLD_JAR_NAME
+mkdir backup/$TODAY
 
-mv -i $OLD_JAR_NAME backup/$TODAY$OLD_JAR_NAME
+mv -i $OLD_JAR_NAME backup/$TODAY
 
 echo "> Build 파일 복사"
 
