@@ -35,4 +35,4 @@
 ![image](https://github.com/PGRRR/block-file-extensions/assets/82517133/ac3b0d26-1d6a-4224-8b07-6c9732fbead8)
 
 ## 화면 구성
-![image](https://github.com/PGRRR/block-file-extensions/assets/82517133/53ab34d5-1c7b-417f-8949-02815859a0a4)
+![image](https://github.com/PGRRR/block-file-extensions/assets/82517133/91232ca6-7126-4fca-a532-e1e300c7cc6c)
