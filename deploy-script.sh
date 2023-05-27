@@ -35,9 +35,9 @@ fi
 
 echo "> 기존 jar 백업"
 
-OLD_JAR_NAME=$(ls -tr $REPOSITORY/ | grep jar | tail -n 1)
+OLD_JAR_NAME=$(ls -tr -S $REPOSITORY/ | grep jar | tail -n 1)
 
-mkdir backup/$TODAY
+mkdir -p backup/$TODAY
 
 mv -i $OLD_JAR_NAME backup/$TODAY
 
