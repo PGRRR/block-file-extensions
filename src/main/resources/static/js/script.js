@@ -91,7 +91,7 @@ $(document).ready(function () {
         let value = customExtensionInput.val();
         let pattern = /^[a-zA-Z0-9.]*$/;
         if (!pattern.test(value)) {
-            alert('영문, 숫자, 특수문자 (.)만 허용됩니다.');
+            alert('확장자는 영문 대소문자, 숫자 및 마침표만 입력할 수 있습니다.');
             value = value.replace(/[^a-zA-Z0-9.]/g, '');
             customExtensionInput.val(value);
             customExtensionInput.focus();
