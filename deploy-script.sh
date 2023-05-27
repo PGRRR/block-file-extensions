@@ -1,6 +1,6 @@
 #!/bin/bash
 REPOSITORY=~/app/was
-GITHUB_REPO=block-file-extension
+GITHUB_REPO=block-file-extensions
 PROJECT_NAME=flow
 TODAY=$(date "+%Y%m%d")
 
@@ -12,6 +12,7 @@ git pull origin main
 
 echo "> 테스트 없이 Gradle 빌드 시작"
 
+chmod +x ./gradlew
 ./gradlew build -x check --parallel
 
 echo "> WAS 경로로 이동"
