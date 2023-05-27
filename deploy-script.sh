@@ -37,7 +37,9 @@ echo "> 기존 jar 백업"
 
 OLD_JAR_NAME=$(ls -tr $REPOSITORY/ | grep jar | tail -n 1)
 
-mv -i -p $OLD_JAR_NAME backup/$TODAY$OLD_JAR_NAME
+mkdir backup/$TODAY$OLD_JAR_NAME
+
+mv -i $OLD_JAR_NAME backup/$TODAY$OLD_JAR_NAME
 
 echo "> Build 파일 복사"
 
@@ -45,7 +47,7 @@ cp $REPOSITORY/$GITHUB_REPO/build/libs/*.jar $REPOSITORY/
 
 echo "> 새 애플리케이션 배포"
 
-JAR_NAME=$(ls -tr $REPOSITORY/ | grep jar | tail -n 1)
+JAR_NAME=$(ls -tr -S $REPOSITORY/ | grep jar | tail -n 1)
 
 echo "> JAR NAME : $JAR_NAME"
 
