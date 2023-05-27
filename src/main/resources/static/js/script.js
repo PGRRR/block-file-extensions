@@ -70,6 +70,7 @@ $(document).ready(function () {
             },
             error: function (jqXHR) {
                 alert(jqXHR.responseText);
+                $('input[type="checkbox"][name="extension"][value="' + extensionValue + '"]').prop('checked', false);
             }
         });
     }
