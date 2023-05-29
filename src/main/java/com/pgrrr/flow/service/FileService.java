@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -42,6 +43,21 @@ public class FileService {
     @Transactional
     public void uploadFile(MultipartFile multipartFile) throws IOException {
         String originalFilename = multipartFile.getOriginalFilename();
+        if (originalFilename != null && originalFilename.contains("%")) {
+            throw new FileTypeCheckException(ErrorCode.UNAUTHORIZED_NAME);
+        }
+
+        InputStream inputStream = multipartFile.getInputStream();
+
+        byte[] magicNumber = new byte[2];
+
+        if (inputStream.read(magicNumber) == 2) {
+            String magicNumberString = new String(magicNumber);
+            if ("MZ".equals(magicNumberString) || "#!".equals(magicNumberString)) {
+                throw new FileTypeCheckException(ErrorCode.BLOCKED_EXTENSION);
+            }
+        }
+
         String uuid = UUID.randomUUID().toString();
         String extension = FilenameUtils.getExtension(originalFilename);
         List<FileExtension> fileExtensionList = fileExtensionMapper.selectExtensionList();

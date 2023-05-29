@@ -1,5 +1,7 @@
 package com.pgrrr.flow.domain;
 
+import jakarta.validation.constraints.Pattern;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

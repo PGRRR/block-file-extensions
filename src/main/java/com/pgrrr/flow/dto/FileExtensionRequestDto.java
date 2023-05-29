@@ -18,7 +18,6 @@ public class FileExtensionRequestDto {
 
     @Size(min = 1, max = 20, message = "확장자 입력 길이는 1에서 20 사이여야 합니다.")
     @Pattern(regexp = "^[a-zA-Z0-9.]*$", message = "확장자는 영문 대소문자, 숫자 및 마침표만 입력할 수 있습니다.")
-
     private String name;
 
     @NotNull private Boolean isStatic;

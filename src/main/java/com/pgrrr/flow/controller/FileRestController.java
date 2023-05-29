@@ -4,6 +4,7 @@ import com.pgrrr.flow.service.FileService;
 
 import jakarta.validation.Valid;
 
+import jakarta.validation.constraints.Pattern;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.HttpStatus;
@@ -30,7 +31,7 @@ public class FileRestController {
      * @throws IOException 파일 업로드 관련 예외 발생
      */
     @PostMapping
-    public ResponseEntity<Void> uploadFile(@Valid @RequestParam MultipartFile file)
+    public ResponseEntity<Void> uploadFile(@RequestParam MultipartFile file)
             throws IOException {
         fileService.uploadFile(file);
         return ResponseEntity.status(HttpStatus.CREATED).build();

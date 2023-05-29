@@ -206,7 +206,12 @@ $(document).ready(function () {
     $('#uploadButton').click(function () {
         var fileInput = $('#fileInput')[0];
         var file = fileInput.files[0];
-
+        let pattern = /^(?!.*%).*/;
+        if (!pattern.test(file.name)) {
+            alert("파일 이름에 제한된 문자가 포함되어 있습니다.");
+            $('#fileInput').val('');
+            return;
+        }
         var formData = new FormData();
         formData.append('file', file);
 

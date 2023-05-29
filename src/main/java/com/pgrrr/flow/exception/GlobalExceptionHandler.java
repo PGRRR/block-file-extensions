@@ -50,4 +50,16 @@ public class GlobalExceptionHandler {
         ErrorCode errorCode = e.getErrorCode();
         return ResponseEntity.status(errorCode.getStatusCode()).body(errorCode.getMessage());
     }
+
+    /**
+     * 파일 관련 에러 처리
+     *
+     * @param e 파일 관련 에러인 경우 발생
+     * @return ResponseEntity
+     */
+    @ExceptionHandler(FileTypeCheckException.class)
+    public ResponseEntity<String> handleFileException(FileTypeCheckException e) {
+        ErrorCode errorCode = e.getErrorCode();
+        return ResponseEntity.status(errorCode.getStatusCode()).body(errorCode.getMessage());
+    }
 }
