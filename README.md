@@ -52,8 +52,8 @@
   - URL Encoding을 이용한 확장자 차단 우회를 방지합니다. (.bat -> .ba%74)
 
 - [x] 업로드 파일의 파일 시그니처(File Magic Number)를 검사합니다.
-  - [List_of_file_signatures - Wiki](https://en.wikipedia.org/wiki/List_of_file_signatures)
   - 쉘 스크립트 - "#!", EXE 실행 파일 - "MZ" 같이 필수로 막아야하는 확장자인 경우 시그니처 검사를 진행합니다.
+  - [List_of_file_signatures - Wiki](https://en.wikipedia.org/wiki/List_of_file_signatures)
 
 > 🤔 추후 방향성 
 > 
